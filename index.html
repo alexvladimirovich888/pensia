@@ -1,0 +1,684 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamble Pension Fund</title>
+       <link rel="shortcut icon" href="images/fav.png" type="image/png">
+       <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        :root {
+            --primary: #005ea2;
+            --secondary: #1a4480;
+            --accent: #d83933;
+            --dark: #1b1b1b;
+            --light: #ffffff;
+            --gray: #f0f0f0;
+            --success: #00a91c;
+        }
+
+        nav li a i {
+    transition: color 0.3s;
+}
+
+nav li a:hover i {
+    color: var(--primary);
+}
+
+        .imgCont {
+            height: 450px;
+        }
+
+        .imgCont img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            font-family: 'Public Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--light);
+            border-bottom: 1px solid #dfe1e2;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 2.75rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.25rem;
+            color: var(--primary);
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .intro-text {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.85rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 1rem 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #b32b24;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 4rem 0;
+            background-color: var(--gray);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 2.75rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .work-step {
+            display: flex;
+            margin-bottom: 4rem;
+            background: var(--gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .step-content {
+            flex: 1;
+            padding: 3rem;
+        }
+        
+        .step-icon {
+            flex: 0 0 150px;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: bold;
+        }
+        
+        .comparison-section {
+            margin: 5rem 0;
+        }
+        
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .comparison-card {
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .comparison-card.Gamble Pension Fund {
+            border-top: 6px solid var(--primary);
+        }
+        
+        .comparison-card.traditional {
+            border-top: 6px solid var(--accent);
+        }
+        
+        .testimonials {
+            margin: 5rem 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: "`";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(0,94,162,0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-initials {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .retirement-banner {
+            background: linear-gradient(135deg, var(--secondary), #0d2d62);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 5rem 0;
+        }
+        
+        .retirement-banner h2 {
+            color: white;
+            position: relative;
+            border-bottom: none;
+        }
+        
+        .retirement-banner h2::after {
+            display: none;
+        }
+        
+        .banner-text {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .banner-button {
+            background-color: white;
+            color: var(--secondary);
+        }
+        
+        .banner-button:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .year-badge {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-column a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 1024px) {
+            .work-step {
+                flex-direction: column;
+            }
+            
+            .step-icon {
+                width: 100%;
+                height: 100px;
+            }
+            
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav li {
+                margin: 0 0.75rem;
+            }
+            
+            .stats {
+                padding: 1.5rem;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+                padding: 0.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+   <header>
+    <div class="header-container">
+        <div class="logo">
+            <div class="logo-text">Gamble Pension Fund</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+                <li>
+                    <a href="https://x.com/Pension_Finance" target="_blank" style="color: var(--dark); font-size: 1.3rem;">
+                       Twitter
+                    </a>
+                </li>
+                <li><a href="#start" class="button" style="color:white; padding: 0.5rem 1.25rem;">Get Started</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>The future of Retirement is Gamble Pension Fund Inc.</h1>
+            <div class="imgCont">
+                <img src="images/123.jpg" alt="">
+            </div>
+            
+            <p class="intro-text">Gamble Pension Fund revolutionizes retirement planning with blockchain technology, offering secure, transparent, and government-backed pension solutions for the modern era.</p>
+            <a href="#start" class="button">Start Your Gamble Pension Fund Plan Today</a>
+        </div>
+    </section>
+    
+    <main class="container">
+        <section id="about">
+            <h2>Why Choose Gamble Pension Fund?</h2>
+            <p>Traditional pension systems are outdated, bureaucratic, and failing retirees worldwide. Gamble Pension Fund combines the security of government oversight with the efficiency of blockchain technology to create retirement solutions that actually work for you.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">$2.4B</div>
+                    <div>Assets Under Management</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">184K+</div>
+                    <div>Satisfied Retirees</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">67+</div>
+                    <div>Average Retirement Age</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="how-it-works">
+            <h2>How Gamble Pension Fund Works</h2>
+            <p>Our simple three-step process makes retirement planning effortless and rewarding.</p>
+            
+            <div class="work-step">
+                <div class="step-icon">1</div>
+                <div class="step-content">
+                    <h3>Invest Securely</h3>
+                    <p>Begin your journey by investing in Gamble Pension Fund tokens through our government-approved platform. Choose from flexible contribution plans that fit your budget.</p>
+                    <ul>
+                        <li>Low minimum investment ($100)</li>
+                        <li>Automated recurring contributions</li>
+                        <li>Tax-advantaged options available</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="work-step">
+                <div class="step-icon">2</div>
+                <div class="step-content">
+                    <h3>Watch Your Wealth Grow</h3>
+                    <p>Our advanced algorithms invest your contributions in a diversified portfolio of assets, optimized for long-term growth and stability.</p>
+                    <ul>
+                        <li>Real-time portfolio tracking</li>
+                        <li>Automated compounding returns</li>
+                        <li>Inflation-protected growth</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin: 4rem 0; padding: 2rem; background-color: var(--gray); border-radius: 8px; position: relative;">
+                <h3 style="margin-top: 0; color: var(--primary);">The Gamble Pension Fund Advantage</h3>
+                <p style="margin-bottom: 1.5rem; font-style: italic;">"I invested in Gamble Pension Fund while my neighbors trusted the government system. Now I travel while they struggle to pay bills."</p>
+                <div style="display: flex; align-items: center;">
+                    <div class="author-initials">RK</div>
+                    <div>
+                        <strong>Robert K.</strong><br>
+                        Retired at 67 with Gamble Pension Fund
+                    </div>
+                </div>
+            </div>
+            
+            <div class="work-step">
+                <div class="step-icon">3</div>
+                <div class="step-content">
+                    <h3>Enjoy Your Digital Retirement</h3>
+                    <p>When you reach retirement age (67+), access your funds instantly through our secure platform. No paperwork, no waiting periods.</p>
+                    <ul>
+                        <li>Flexible withdrawal options</li>
+                        <li>Worldwide access to funds</li>
+                        <li>Estate planning tools</li>
+                    </ul>
+                    <a href="#start" class="button">Begin Your Plan Now</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="comparison-section" id="benefits">
+            <h2>Gamble Pension Fund vs Traditional Pensions</h2>
+            <p>See how Gamble Pension Fund outperforms outdated retirement systems in every way.</p>
+            
+            <div class="comparison-container">
+                <div class="comparison-card Gamble Pension Fund">
+                    <h3>Gamble Pension Fund Digital Retirement</h3>
+                    <ul>
+                        <li>Instant access to funds at retirement age</li>
+                        <li>Full transparency with blockchain tracking</li>
+                        <li>Global portability of benefits</li>
+                        <li>Automated smart contract payouts</li>
+                        <li>Inflation-protected growth</li>
+                        <li>24/7 account access via mobile app</li>
+                    </ul>
+                </div>
+                <div class="comparison-card traditional">
+                    <h3>Traditional Pension Systems</h3>
+                    <ul>
+                        <li>Lengthy approval processes</li>
+                        <li>Opaque fund management</li>
+                        <li>Geographic restrictions</li>
+                        <li>Delayed benefit payments</li>
+                        <li>Vulnerable to inflation erosion</li>
+                        <li>Limited to business hours access</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials" id="testimonials">
+            <h2>Success Stories</h2>
+            <p>Hear from real Gamble Pension Fund retirees enjoying their digital retirement.</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "After 40 years of hard work, Gamble Pension Fund gave me the retirement I deserved. I withdrew my first payment the day I turned 67 and bought my dream boat!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-initials">MT</div>
+                        <div>
+                            <strong>Michael T.</strong><br>
+                            Retired Marine Engineer
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "I was skeptical about digital pensions, but Gamble Pension Fund proved me wrong. My returns outperformed my 401k, and now I spend winters in Spain stress-free."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-initials">SL</div>
+                        <div>
+                            <strong>Sarah L.</strong><br>
+                            Former School Teacher
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "While my colleagues waited months for pension approvals, I tapped my Gamble Pension Fund funds immediately. The contrast couldn't be clearer - future-proof your retirement!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-initials">JP</div>
+                        <div>
+                            <strong>James P.</strong><br>
+                            Retired at 68
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="retirement-banner">
+            <div class="year-badge">2077</div>
+            <h2>Ready for Your Digital Retirement?</h2>
+            <p class="banner-text">If you're 67 or older, you can start withdrawing your Gamble Pension Fund benefits today. Join thousands of satisfied retirees enjoying financial freedom.</p>
+            <a href="#withdraw" class="button banner-button">Begin Withdrawals Now</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Gamble Pension Fund</h3>
+                <p>A next-generation retirement solution developed with support from the National Retirement Administration.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Enrollment</a></li>
+                    <li><a href="#">Performance</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Retirement Calculator</a></li>
+                    <li><a href="#">Investment Strategy</a></li>
+                    <li><a href="#">Tax Information</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>Gamble Pension Fund Headquarters<br>
+                123 Retirement Plaza<br>
+                Washington, DC 20001<br>
+                contact@Gamble Pension Fund.gov</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2077 Gamble Pension Fund Digital Retirement Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body></html>
